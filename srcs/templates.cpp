@@ -12,46 +12,46 @@ and System Commands
 #include "../include/genlab.h"
 
 // Helpful Message about functionality
- const std::string tHelp[]  = 
+ const std::string tHelp[]  =
  {
-	 "--init\t\tInitialize the Project Directory\n",
-	 "Usage:\n\t--init <ProjectName> [file1 file2 ...]\n",
-	 
-	 "--add\t\tAdd new files to the Project Directory\n",
-	 "Usage:\n\t--add [file1 file2 ...]\n",
-	 
-	 "--rem\t\tRemove a file from the Project Directory\n",
-	 "Usage:\n\t--rem [file1 file2 ...]\n",
-	 
-	 "--build\t\tCompile the Project and produce an executable\n",
-	 "Usage:\n\t--build\n",
-	 
-	 "--run\t\tRun the compiled Project executable\n",
-	 "Usage:\n\t--run\n",
-	 
-	 "--test\t\tRun Test Wizard and test compiled Project\n"
-	 "Usage:\n\t--test [test1 test2 ...]\n", 
-	 
-	 "--doc\t\tRun Documentary Wizard and generate a TeX File\n",
-	  "Usage:\n\t--doc\n ",
-	 
-	 "--pkg\t\tPackage the Project Directory for submission\n",
-	 "Usage:\n\t--pkg\n",
-	 
-	  "--info\t\tPrint information about current Project\n",
-	 "Usage:\n\t--info\n",
-	 
-	  "--help\t\tPrint the help or help about a specific argument\n",
-	 "Usage:\n\t--help [arg]\n"
+     "--init\t\tInitialize the Project Directory\n",
+     "Usage:\n\t--init <ProjectName> [file1 file2 ...]\n",
+
+     "--add\t\tAdd new files to the Project Directory\n",
+     "Usage:\n\t--add [file1 file2 ...]\n",
+
+     "--rem\t\tRemove a file from the Project Directory\n",
+     "Usage:\n\t--rem [file1 file2 ...]\n",
+
+     "--build\t\tCompile the Project and produce an executable\n",
+     "Usage:\n\t--build\n",
+
+     "--run\t\tRun the compiled Project executable\n",
+     "Usage:\n\t--run\n",
+
+     "--test\t\tRun Test Wizard and test compiled Project\n"
+     "Usage:\n\t--test [test1 test2 ...]\n",
+
+     "--doc\t\tRun Documentary Wizard and generate a TeX File\n",
+      "Usage:\n\t--doc\n ",
+
+     "--pkg\t\tPackage the Project Directory for submission\n",
+     "Usage:\n\t--pkg\n",
+
+      "--info\t\tPrint information about current Project\n",
+     "Usage:\n\t--info\n",
+
+      "--help\t\tPrint the help or help about a specific argument\n",
+     "Usage:\n\t--help [arg]\n"
  };
 
 // Template For holding Project Header Information like
-//	- Author Name
-//	- Email
-//	- Dates
-//	- Tags
- //	- Desc
- const std::string tHeader = 
+//  - Author Name
+//  - Email
+//  - Dates
+//  - Tags
+ // - Desc
+ const std::string tHeader =
  "/*\n@author: %AUTHOR%\n"
  "@email: %EMAIL%\n"
  "%TAG%\n\n"
@@ -236,7 +236,7 @@ and System Commands
 
 
 // Template for Latex Test Slide A Command with an Image
- const std::string tTestPageA = 
+ const std::string tTestPageA =
  "\\testpagea{%TN%}{%DESC}}{%FL%}{%LL%}\n\n";
 
 
@@ -247,7 +247,7 @@ and System Commands
 
 
 // Template for C++ *.h Header File
- const std::string tHFile
+ const std::string tHFile =
  "/*\n%HEADER%\n*/\n\n"
  "// Include Guard\n#ifndef __%HFILE%\n\t#define __%HFILE%\n\n"
  "// Include Dependencies\n%INCLUDE%\n\n"
@@ -256,7 +256,7 @@ and System Commands
 
 
 // Template for C++ *.cpp Source File
- const std::string tCPPFile = 
+ const std::string tCPPFile =
  "%HEADER%\n\n"
  "// Include Dependencies\n%INCLUDE%\n\n"
  "// Global Declarations/Definitions\n\n"
@@ -264,28 +264,28 @@ and System Commands
 
 
 // Template for  a C++ Main Function that prints 'Hello World'
- const std::string tMainFunct = 
+ const std::string tMainFunct =
  "// Main Function\n"
  "int main(int argc, char** argv[])\n"
  "{\n\t/* Source Code */\n\tstd::cout << \"Hello World!\n\";\n\treturn 0;\n}";
 
 
 // Template for Project Directory Structure
- const std::string tProjectDirectories[] = 
+ const std::string tProjectDirectories[] =
  {
-	 "%PROJECT%",
-	 "%PROJECT%/bin",
-	 "%PROJECT%/bin/build",
-	 "%PROJECT%/bin/pkgs",
-	 "%PROJECT%/bin/tests",
-	 "%PROJECT%/docs",
-	 "%PROJECT%/include",
-	 "%PROJECT%/srcs"
+     "%PROJECT%",
+     "%PROJECT%/bin",
+     "%PROJECT%/bin/build",
+     "%PROJECT%/bin/pkgs",
+     "%PROJECT%/bin/tests",
+     "%PROJECT%/docs",
+     "%PROJECT%/include",
+     "%PROJECT%/srcs"
  };
 
- 
-// Template for the  Shell Test File 
- const std::string tTestFile = 
+
+// Template for the  Shell Test File
+ const std::string tTestFile =
  "#!/usr/bin/env bash\n\n"
  "echo \"Test %TN%:\n[INPUTS]:\n%STDIN%\n[OUTPUTS]:\"\n"
- "echo \"%STDIN%\" | bin/build/%PROJECT%"; 
+ "echo \"%STDIN%\" | bin/build/%PROJECT%";

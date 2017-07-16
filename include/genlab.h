@@ -19,7 +19,6 @@ And Logic of the Genlab Project
 #include <stdio.h>
 #include <sys/stat.h>
 
-#include "auxiliary.h"
 #include "templates.h"
 #include "structs.h"
 
@@ -61,7 +60,7 @@ int handleRunArg();
 int handleDocArg();
 
 // Run the Test Wizard and Generate Test Documentation
-int handleTestArg(int, char*[]);
+int handleTestArg(int=2, char*[]=0);
 
 // Package the Project
 int handlePackArg();
@@ -97,17 +96,22 @@ bool checkTestsInit();
 //  Project Documentation
 bool checkDocsInit();
 
+// Creates a stream to write to a .TeX File
+//  @Returns a Stream to Content of the Doc File
+std::string importTests(TestFile);
+
+
 
 // Create the Project Directory
 bool projDirectoryInit(std::string);
 
 // Creates a stream to write to a .TeX File
 //  @Returns a Stream to Content of the Doc File
-std::stringstream docFileInit(GenFile);
+std::string docFileInit(GenFile);
 
 // Creates a Stream to write a Makefile
 //  @Returns a Stream to the Content of the Makefile
-std::stringstream makeFileInit(GenFile);
+std::string makeFileInit(GenFile);
 
 
 

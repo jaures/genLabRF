@@ -31,19 +31,19 @@ std::string _strReplace(std::string, std::string, std::string);
 // Takes a the first argument, and replaces all instances of
 //  the second argument with the third argument in place.
 //  @Return if any swaps were made
-int _strReplace(std::string&, std::string, std::string);
+int _strReplaceI(std::string&, std::string, std::string);
 
 // Count Number of New Lines in a string
 int _newlineCount(std::string);
 
-// Count Number of New Lines in an ifstream
-int _newlineCount(std::string);
+// Count Number of New Lines In a file
+int _newlineCountF(std::string);
 
 // Get Multilined User Input from std::cin
-std::string _getMultiLineInput(int);
+std::string _getMultiLineInput(int=32);
 
 // Get Multilined User Input from an std::ifstream
-std::string _getMultiLineInput(std::ifstream&, int, std::string);
+std::string _getMultiLineInputF(std::ifstream&, int=32, std::string="");
 
 
 // Close Include Guard

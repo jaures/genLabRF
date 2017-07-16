@@ -89,17 +89,18 @@ extern const std::string kFileDelim;
 
     std::vector< ProjFile > projFiles;
 
-    GenFile()
+    /*GenFile()
     {
         prjName =
             prjAuthor =
             prjEmail =
             prjTag =
             prjDesc = "";
-    }
+    }*/
 
-    GenFile( std::string _name, std::string _author, std::string _email,
-            std::string _tag, std::string _desc)
+    GenFile( std::string _name = "", std::string _author = "",
+            std::string _email = "", std::string _tag = "",
+            std::string _desc = "")
     {
         prjName     = _name;
         prjAuthor   = _author;
@@ -221,9 +222,7 @@ extern const std::string kFileDelim;
             }
         }
         fr.close();
-    };
-
-
+    }
 
     // Create All the Project Files
     bool gen(std::string dir = "")
@@ -235,7 +234,7 @@ extern const std::string kFileDelim;
         }
 
         return true;
-    };
+    }
 
     // Get information for headers about the Project
     std::string hInfo()
@@ -243,13 +242,13 @@ extern const std::string kFileDelim;
         return ("Author:\t"     + prjAuthor +
                 "\nEmail:\t"    + prjEmail +
                 "\nTag:\t\t"    + prjTag);
-    };
+    }
 
     // Get Header Information as well as the project description
     std::string info()
     {
         return hInfo() + "\nDescription:\n" + prjDesc;
-    };
+    }
 };
 
 
@@ -257,14 +256,17 @@ extern const std::string kFileDelim;
  struct UnitTest
 {
     std::string name;
+    std::string desc;
     std::string content;
     std::string stdin;
     bool img;
 
     // Initialize All the Unit Test Members
-    UnitTest(std::string _name, std::string _content, std::string _stdin)
+    UnitTest(std::string _name = "", std::string _desc = "",
+                std::string _content = "", std::string _stdin = "")
     {
-        name = _name
+        name = _name;
+        desc = _desc;
         content = _content;
         stdin = _stdin;
         img = false;
@@ -289,8 +291,8 @@ extern const std::string kFileDelim;
         std::ofstream fw( (dir + name).c_str(),
                         std::ofstream::out | std::ofstream::trunc );
 
-        if( !fw.good() )
-            return false
+        if(!fw.good())
+            return false;
 
         fw << "#!/usr/bin/env bash\n\necho \"Test "
             << name << ":\n[INPUT]:\n" << stdin
@@ -303,7 +305,8 @@ extern const std::string kFileDelim;
     // Return Information about Unit Test
     std::string info()
     {
-        return "Name: " + name + "\nContent:\n" + content;
+        return "Name: " + name + "\nDesciption:\n" + desc
+                + "\nContent:\n" + content;
     }
 };
 
@@ -315,9 +318,16 @@ extern const std::string kFileDelim;
 
     std::vector< UnitTest > tests;
 
-    TestFile(std::string file)
+    TestFile(std::string file = "")
     {
-        load(file);
+        if(file.empty())
+        {
+            prjName = "";
+        }
+        else
+        {
+            load(file);
+        }
     }
 
     // Write TestFile Struct to File
@@ -331,16 +341,18 @@ extern const std::string kFileDelim;
         if(!fw.good())
             return false;
 
-        fw << prjName << '\n'
+        fw << prjName << '\n';
 
         for(int i = 0; i < tests.size() && fw.good(); i++)
         {
-            fw << kFileDelim << '\n';
-                << tests[i].name << "\n";
-                << kFileDelim << '\n';
-                << tests[i].content << "\n";
-                << kFileDelim << '\n';
-                << tests[i].stdin << "\n";
+            fw << kFileDelim << '\n'
+                << tests[i].name << '\n'
+                << kFileDelim << '\n'
+                << tests[i].desc << '\n'
+                << kFileDelim << '\n'
+                << tests[i].content << '\n'
+                << kFileDelim << '\n'
+                << tests[i].stdin << '\n';
         }
 
         // Check For Error
@@ -385,7 +397,7 @@ extern const std::string kFileDelim;
 
         while(fr.good() && tmp != (kFileDelim + kFileDelim))
         {
-            if(fr.empty())
+            if(tmp.empty())
             {
                 getline(fr, tmp);
             }
@@ -398,10 +410,11 @@ extern const std::string kFileDelim;
                 UnitTest utest;
 
                 utest.name = tmp;
+                getline(fr, utest.desc);
 
-                utest.content = _getMultiLine(fr, kFileDelim);
+                utest.content = _getMultiLineInputF(fr, 32, kFileDelim);
 
-                utest.stdin = _getMultiLine(fr, kFileDelim);
+                utest.stdin = _getMultiLineInputF(fr, 32, kFileDelim);
 
                 getline(fr, tmp);
                 tests.push_back(utest);
