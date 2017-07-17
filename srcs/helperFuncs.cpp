@@ -59,7 +59,7 @@ bool projDirectoryInit(std::string pn)
     for(int i = 0; i < 8 && !err; i++)
     {
         // Check for an Error After Each Operation
-        err &= mkdir(_strReplace( tProjectDirectories[i], "%PROJECT%", pn).c_str());
+        err &= mkdir(_strReplace( tProjectDirectories[i], "%PROJECT%", pn).c_str(), MOD777);
     }
 
     return err;
