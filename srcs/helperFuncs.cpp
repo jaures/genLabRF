@@ -59,7 +59,7 @@ bool projDirectoryInit(std::string pn)
     for(int i = 0; i < 8 && !err; i++)
     {
         // Check for an Error After Each Operation
-        err &= mkdir(_strReplace( tProjectDirectories[i], "%PROJECT%", pn));
+        err &= mkdir(_strReplace( tProjectDirectories[i], "%PROJECT%", pn).c_str());
     }
 
     return err;
@@ -128,7 +128,7 @@ std::string docFileInit(GenFile gf)
         ss << kFileDelim << "\n";
     }
     ss << kFileDelim << kFileDelim;
-    return ss;
+    return ss.str();
 }
 
 
