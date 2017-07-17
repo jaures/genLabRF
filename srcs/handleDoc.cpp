@@ -114,7 +114,7 @@ int handleDocArg()
 
                     // Place First and Last line variables into Template
                     exitCode |= (_strReplaceI(_strReplace( implSlide, "%FL%", fLine),
-                                "%LL%", lLine)) ? NoError : DocError);
+                                "%LL%", lLine) ? NoError : DocError);
 
                     // Append New Slide to the Documentation
                     exitCode |= (_strReplaceI(content, "%IMPL%", implSlide + "\n%IMPL%")
