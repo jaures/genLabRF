@@ -139,7 +139,7 @@ int handleHelpArg( char* cmd = 0)
 
         for(int i = 0; i < 10; i++)
         {
-            std::cout << "\n\t" << (std::string)_strReplace(tHelp[2*i], "\n", "\n\t");
+            std::cout << "\n\t" << _strReplace(tHelp[2*i], "\n", "\n\t");
         }
     }
     else
