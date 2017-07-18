@@ -47,12 +47,14 @@ int handlePackArg()
 int handleInfoArg()
 {
 	GenFile gf;
-	int exitCode = (gf.load() ? InitError : NoError);
+	int exitCode = ( (checkProjInit() && gf.load()) ?
+            InitError : NoError);
 	
 	if(exitCode)
 		return exitCode;
 	
-	std::cout << "Project Overview:\n\n" << gf.info() << "n\n\nModules:\n";
+	std::cout << "PROJECT OVERVIEW:\n\n" << gf.info() 
+                << "\n\nMODULES:\n";
 	
 	for(int i = 0; i < gf.projFiles.size(); i++)
 	{

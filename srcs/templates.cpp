@@ -15,34 +15,35 @@ and System Commands
  const std::string tHelp[]  =
  {
     "--init\t\tInitialize the Project Directory\n",
-    "\tUsage:\n\t\tgenlab --init <ProjectName> [file1 file2 ...]\n",
+    "\n\tUsage:\n\n\t\tgenlab --init <ProjectName> "
+        "[file1 file2 ...]\n",
 
     "--add\t\tAdd new files to the Project Directory\n",
-    "\tUsage:\n\t\tgenlab --add [file1 file2 ...]\n",
+    "\n\tUsage:\n\n\t\tgenlab --add [file1 file2 ...]\n",
 
     "--rem\t\tRemove a file from the Project Directory\n",
-    "\tUsage:\n\t\tgenlab --rem [file1 file2 ...]\n",
+    "\n\tUsage:\n\n\t\tgenlab --rem [file1 file2 ...]\n",
 
     "--build\t\tCompile the Project and produce an executable\n",
-    "\tUsage:\n\t\tgenlab --build\n",
+    "\n\tUsage:\n\n\t\tgenlab --build\n",
 
     "--run\t\tRun the compiled Project executable\n",
-    "\tUsage:\n\tgenlab --run\n",
+    "\n\tUsage:\n\n\t\tgenlab --run\n",
 
     "--test\t\tRun Test Wizard and test compiled Project\n",
-    "\tUsage:\n\tgenlab --test [test1 test2 ...]\n",
+    "\n\tUsage:\n\n\t\tgenlab --test [test1 test2 ...]\n",
 
     "--doc\t\tRun Documentary Wizard and generate a TeX File\n",
-    "\tUsage:\n\t\tgenlab --doc\n ",
+    "\n\tUsage:\n\t\tgenlab --doc\n ",
 
     "--pkg\t\tPackage the Project Directory for submission\n",
-    "\tUsage:\n\t\tgenlab --pkg\n",
+    "\n\tUsage:\n\n\t\tgenlab --pkg\n",
 
     "--info\t\tPrint information about current Project\n",
-    "\tUsage:\n\t\tgenlab --info\n",
+    "\n\tUsage:\n\n\t\tgenlab --info\n",
 
     "--help\t\tPrint the help or help about a specific argument\n",
-    "\tUsage:\n\t\tgenlab --help [arg]\n"
+    "\n\tUsage:\n\n\t\tgenlab --help [arg]\n"
  };
 
 // Template For holding Project Header Information like

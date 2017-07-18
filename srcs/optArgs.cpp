@@ -147,7 +147,7 @@ int handleHelpArg( char* cmd)
         {
             if( tHelp[2*i].find(cmd) != std::string::npos)
             {
-                std::cout << tHelp[2*i] << "\t" 
+                std::cout << tHelp[2*i] << "\n" 
                     << tHelp[2*i+1] << "\n";
 
                 // Exit Loop since match is found
