@@ -130,10 +130,10 @@ int handleHelpArg( char* cmd)
 
 
     // If no Argument is given
-    if(!cmd)
+    if(!cmd || std::string(cmd).empty())
     {
         // Print all Help
-        std::cout << "USAGE OVERVIEW:";
+        std::cout << "USAGE OVERVIEW:\n";
 
         for(int i = 0; i < 10; i++)
         {
@@ -145,12 +145,18 @@ int handleHelpArg( char* cmd)
         // Print Specific Argument Help
         for(int i = 0; i < 10; i++)
         {
-            if( tHelp[2*i].find(cmd) != std::string::npos)
+            if( tHelp[2*i].substr.find(cmd) != std::string::npos)
             {
                 std::cout << tHelp[2*i] << "\t" 
                     << tHelp[2*i+1] << "\n";
+
+                // Break loop since match is found
+                break;
             }
         }
+
+        std::cout << "<HelpError>: Argument '" << cmd 
+                    << "' is not recognized\n\n";
     }
     return NoError;
 }
