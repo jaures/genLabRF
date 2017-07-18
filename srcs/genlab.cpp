@@ -79,7 +79,7 @@ int main(int argc, char * argv[])
         }
         else if( std::string(argv[1]) == "--help")
         {
-            exitCode = handleHelpArg(NULL);
+            exitCode = handleHelpArg(0);
         }
         else
         {
