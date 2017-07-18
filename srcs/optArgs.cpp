@@ -146,7 +146,7 @@ int handleHelpArg( char* cmd)
         // Print Specific Argument Help
         for(int i = 0; i < 10; i++)
         {
-            if( tHelp[2*i].substr.find(cmd) != std::string::npos)
+            if( tHelp[2*i].find(cmd) != std::string::npos)
             {
                 std::cout << tHelp[2*i] << "\t" 
                     << tHelp[2*i+1] << "\n";
