@@ -14,35 +14,35 @@ and System Commands
 // Helpful Message about functionality
  const std::string tHelp[]  =
  {
-     "--init\t\tInitialize the Project Directory\n",
-     "Usage:\n\t--init <ProjectName> [file1 file2 ...]\n",
+    "--init\t\tInitialize the Project Directory\n",
+    "\tUsage:\n\t\tgenlab --init <ProjectName> [file1 file2 ...]\n",
 
-     "--add\t\tAdd new files to the Project Directory\n",
-     "Usage:\n\t--add [file1 file2 ...]\n",
+    "--add\t\tAdd new files to the Project Directory\n",
+    "\tUsage:\n\t\tgenlab --add [file1 file2 ...]\n",
 
-     "--rem\t\tRemove a file from the Project Directory\n",
-     "Usage:\n\t--rem [file1 file2 ...]\n",
+    "--rem\t\tRemove a file from the Project Directory\n",
+    "\tUsage:\n\t\tgenlab --rem [file1 file2 ...]\n",
 
-     "--build\t\tCompile the Project and produce an executable\n",
-     "Usage:\n\t--build\n",
+    "--build\t\tCompile the Project and produce an executable\n",
+    "\tUsage:\n\t\tgenlab --build\n",
 
-     "--run\t\tRun the compiled Project executable\n",
-     "Usage:\n\t--run\n",
+    "--run\t\tRun the compiled Project executable\n",
+    "\tUsage:\n\tgenlab --run\n",
 
-     "--test\t\tRun Test Wizard and test compiled Project\n",
-     "Usage:\n\t--test [test1 test2 ...]\n",
+    "--test\t\tRun Test Wizard and test compiled Project\n",
+    "\tUsage:\n\tgenlab --test [test1 test2 ...]\n",
 
-     "--doc\t\tRun Documentary Wizard and generate a TeX File\n",
-      "Usage:\n\t--doc\n ",
+    "--doc\t\tRun Documentary Wizard and generate a TeX File\n",
+    "\tUsage:\n\t\tgenlab --doc\n ",
 
-     "--pkg\t\tPackage the Project Directory for submission\n",
-     "Usage:\n\t--pkg\n",
+    "--pkg\t\tPackage the Project Directory for submission\n",
+    "\tUsage:\n\t\tgenlab --pkg\n",
 
-      "--info\t\tPrint information about current Project\n",
-     "Usage:\n\t--info\n",
+    "--info\t\tPrint information about current Project\n",
+    "\tUsage:\n\t\tgenlab --info\n",
 
-      "--help\t\tPrint the help or help about a specific argument\n",
-     "Usage:\n\t--help [arg]\n"
+    "--help\t\tPrint the help or help about a specific argument\n",
+    "\tUsage:\n\t\tgenlab --help [arg]\n"
  };
 
 // Template For holding Project Header Information like
