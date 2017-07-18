@@ -31,7 +31,7 @@ int handleInitArg(int c, char* vals[])
         getline(std::cin, gf.prjEmail);
 
         // Set Project Tagline
-        std::cout << "Tagline: ";
+        std::cout << "Tag: ";
         getline(std::cin, gf.prjTag);
 
         // Set Project Description
@@ -44,6 +44,8 @@ int handleInitArg(int c, char* vals[])
                 << "         ~PROJECT OVERVIEW~\n"
                 << "========================================\n\n"
                 << gf.info() <<"\n\n\nContinue? (y/n): ";
+
+        getline(std::cin, ch);
 
     }while( std::string("yesYesYES").find(ch) == std::string::npos );
 
@@ -75,7 +77,9 @@ int handleInitArg(int c, char* vals[])
             continue;
         }
 
-        std::cout << "Libraries to include in " << pf.name << " Module (Seperate with spaces):\n";
+        std::cout << "Libraries to include in " << pf.name 
+            << " Module (Seperate with spaces):\n";
+        
         std::string line;
         getline(std::cin, line);
 
@@ -88,9 +92,9 @@ int handleInitArg(int c, char* vals[])
                     NoError : InitError);
 
         // Add in Included Dependencies & Check for Error
-        exitCode |= ((_strReplaceI(pf.content, "%INCLUDE%",
+        exitCode |= ( (_strReplaceI(pf.content, "%INCLUDE%",
                     "/*\n" + gf.info() + "\n*/\n\n#include <" +
-                    _strReplace(line, " ", ">\n#include <") + ">\n") > 0 ) ?
+                    _strReplace(line," ",">\n#include <")+">\n") > 0 ) ?
                     NoError : InitError);
     }
 
@@ -98,12 +102,14 @@ int handleInitArg(int c, char* vals[])
     //  no erros have occured thus far
     if( !exitCode)
     {
-        exitCode |= ( gf.write(gf.prjName + "/") ? NoError : InitError );
-        exitCode |= ( gf.gen(gf.prjName + "/") ? NoError : InitError );
+        exitCode |= ( gf.write(gf.prjName + "/") ? 
+                        NoError : InitError );
+
+        exitCode |= ( gf.gen(gf.prjName + "/") ? 
+                        NoError : InitError );
+
         makeFileInit(gf);
     }
 
     return exitCode;
 }
-
-
