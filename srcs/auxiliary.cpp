@@ -7,7 +7,7 @@ Contains Useful Auxiliary Functions
 #include "../include/genlab.h"
 
 
-
+const int kMaxBuff = 256;
 
 // Perform a system call
 //  @Return the exit code
