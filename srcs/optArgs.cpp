@@ -150,8 +150,8 @@ int handleHelpArg( char* cmd)
                 std::cout << tHelp[2*i] << "\t" 
                     << tHelp[2*i+1] << "\n";
 
-                // Break loop since match is found
-                break;
+                // Exit Loop since match is found
+                return NoError;
             }
         }
 
