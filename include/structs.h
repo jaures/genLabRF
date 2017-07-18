@@ -241,7 +241,7 @@ extern const std::string kFileDelim;
     {
         return ("Author:\t"     + prjAuthor +
                 "\nEmail:\t"    + prjEmail +
-                "\nTag:\t\t"    + prjTag);
+                "\nTag:\t"    + prjTag);
     }
 
     // Get Header Information as well as the project description
