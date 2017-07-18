@@ -47,7 +47,6 @@ std::string _strReplace(std::string str, std::string ori, std::string rep)
 
     while( p != std::string::npos)
     {
-        
         // Remove first instance of @param ori and insert
         //  into the location @param rep into @param str
         str = str.substr(0,p) + rep +
@@ -55,8 +54,6 @@ std::string _strReplace(std::string str, std::string ori, std::string rep)
 
         // Look for Next Instance of @param ori in @param str
         p = str.find(ori);
-
-        std::cout << str << "\n";
     }
 }
 

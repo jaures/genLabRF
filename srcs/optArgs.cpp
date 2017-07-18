@@ -138,12 +138,12 @@ int handleHelpArg( char* cmd)
         for(int i = 0; i < 10; i++)
         {
             // DEBUG LINE
-            std::cout << "BOOP HELP\n";
+            std::cout << "BOOP HELP1\n";
 
-            std::cout << "\n\t" << _strReplace(tHelp[2*i], "\n", "\n\t");
+            std::cout << tHelp[2*i];
             
             // DEBUG LINE
-            std::cout << "BOOP HELP\n";
+            std::cout << "BOOP HELP2\n";
         }
     }
     else
