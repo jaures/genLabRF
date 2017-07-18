@@ -135,6 +135,7 @@ std::string _getMultiLineInput(int lineLimit)
         lineLimit--;
     }
 
+    std::cout << lines << "\n.\n===";
     return lines;
 }
 
