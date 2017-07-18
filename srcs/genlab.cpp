@@ -47,45 +47,46 @@ const std::string kExitCodeErrors[9] =
 
 int main(int argc, char * argv[])
 {
-    int exitcode = 0;
-
-        // DEBUG LINE
-        std::cout << "BOOP!\n";
+    int exitCode = 0;
 
     // Handle Routing the Command Line Arguments
     if( argc == 1)
     {
         // Print out the Help if no arguments were passed
-        exitcode = handleHelpArg(0);
+        exitCode = handleHelpArg(0);
     }
     else if( argc == 2)
     {// Check for all Arguments that take no extra options
         if( std::string(argv[1]) == "--info")
         {
-            exitcode = handleInfoArg();
+            exitCode = handleInfoArg();
         }
         else if( std::string(argv[1]) == "--build")
         {
-            exitcode = handleBuildArg();
+            exitCode = handleBuildArg();
         }
         else if( std::string(argv[1]) == "--run")
         {
-            exitcode = handleRunArg();
+            exitCode = handleRunArg();
         }
         else if( std::string(argv[1]) == "--doc")
         {
-            exitcode = handleDocArg();
+            exitCode = handleDocArg();
         }
         else if( std::string(argv[1]) == "--pack")
         {
-            exitcode = handlePackArg();
+            exitCode = handlePackArg();
+        }
+        else if( std::string(argv[1]) == "--help")
+        {
+            exitCode = handleHelpArg(NULL);
         }
         else
         {
             // Display Error Message if there aren't any suitable routes
             std::cout << "\n<Error>: '"<< argv[1] << "' is not a recognized Argument.\n"
                     << "Try running:\n\t --help\nor\n\t--help <arg>\n\n";
-            exitcode = -1;
+            exitCode = -1;
         }
     }
     else if(argc > 2)
@@ -93,32 +94,32 @@ int main(int argc, char * argv[])
 
         if( std::string(argv[1]) == "--init")
         {
-            exitcode = handleInitArg(argc, argv);
+            exitCode = handleInitArg(argc, argv);
         }
         else if( std::string(argv[1]) == "--add")
         {
-            exitcode = handleAddArg(argc, argv);
+            exitCode = handleAddArg(argc, argv);
         }
         else if( std::string(argv[1]) == "--rem")
         {
-            exitcode = handleRemArg(argc, argv);
+            exitCode = handleRemArg(argc, argv);
         }
         else if( std::string(argv[1]) == "--test")
         {
-            exitcode = handleTestArg(argc, argv);
+            exitCode = handleTestArg(argc, argv);
         }
         else if( std::string(argv[1]) == "--help")
         {
-            exitcode = handleHelpArg(argv[2]);
+            exitCode = handleHelpArg(argv[2]);
         }
         else
         {
             // Display Error Message if there aren't any suitable routes
             std::cout << "\n<Error>: Invalid Argument or too many options passed.\n"
                     << "Try running:\n\t --help\nor\n\t--help <arg>\n\n";
-            exitcode = -1;
+            exitCode = -1;
         }
     }
 
-    return exitcode;
+    return exitCode;
 }
