@@ -49,11 +49,14 @@ int main(int argc, char * argv[])
 {
     int exitcode = 0;
 
+        // DEBUG LINE
+        std::cout << "BOOP!\n";
+
     // Handle Routing the Command Line Arguments
     if( argc == 1)
     {
         // DEBUG LINE
-        std::cout << "BOOP!\n";
+        std::cout << "BOOP1!\n";
 
         // Print out the Help if no arguments were passed
         exitcode = handleHelpArg(0);
