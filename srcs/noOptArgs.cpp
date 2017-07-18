@@ -47,7 +47,7 @@ int handlePackArg()
 int handleInfoArg()
 {
 	GenFile gf;
-	int exitCode = ( (checkProjInit() && gf.load()) ?
+	int exitCode = ( (!checkProjInit() && gf.load()) ?
             InitError : NoError);
 	
 	if(exitCode)
