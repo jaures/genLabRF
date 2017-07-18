@@ -128,6 +128,9 @@ int handleHelpArg( char* cmd = 0)
 {
     std::cout <<   "GENLAB - Lab Project Generator\n\n";
 
+    // DEBUG LINE
+    std::cout << "BOOP HELP\n";
+
     // If no Argument is given
     if(cmd)
     {
