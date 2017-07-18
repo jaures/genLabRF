@@ -128,10 +128,9 @@ int handleHelpArg( char* cmd)
 {
     std::cout <<   "GENLAB - Lab Project Generator\n\n";
 
-    std::cout << std::string(cmd).empty() << "\nYOMA.\n";
 
     // If no Argument is given
-    if(!cmd || std::string(cmd).empty())
+    if(!cmd)
     {
         // Print all Help
         std::cout << "USAGE OVERVIEW:\n";
