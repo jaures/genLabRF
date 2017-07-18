@@ -75,7 +75,7 @@ int handleRemArg(int, char*[]);
 int handleInfoArg();
 
 // Produce the Help Message
-int handleHelpArg( char*);
+int handleHelpArg( char* = NULL);
 
 
 // Helper Functions

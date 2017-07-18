@@ -124,7 +124,7 @@ int handleRemArg(int c, char* vals[])
 }
 
 // Produce the Help Message
-int handleHelpArg( char* cmd = 0)
+int handleHelpArg( char* cmd)
 {
     std::cout <<   "GENLAB - Lab Project Generator\n\n";
 
@@ -132,7 +132,7 @@ int handleHelpArg( char* cmd = 0)
     std::cout << "BOOP HELP\n" << tHelp[2];
 
     // If no Argument is given
-    if(cmd)
+    if(!cmd)
     {
         // Print all Help
         std::cout << "USAGE OVERVIEW:";
@@ -151,7 +151,6 @@ int handleHelpArg( char* cmd = 0)
             {
                 std::cout << tHelp[2*i] << tHelp[2*i+1] << "\n";
             }
-            std::cout << "\n\t" << (std::string)_strReplace(tHelp[1*i], "\n", "\n\t");
         }
     }
     return NoError;
