@@ -23,7 +23,7 @@ int handleInitArg(int c, char* vals[])
     do
     {
         // Set Project Author
-        std::cout << "Author: ";
+        std::cout << "\nAuthor: ";
         getline(std::cin, gf.prjAuthor);
 
         // Set Project Email
@@ -35,16 +35,17 @@ int handleInitArg(int c, char* vals[])
         getline(std::cin, gf.prjTag);
 
         // Set Project Description
-        std::cout << "Project Description (leave a blank line to save entry and continue):\n";
+        std::cout << "\nProject Description (leave a blank"
+                    << " line to save entry and continue):\n";
         gf.prjEmail  = _getMultiLineInput();
 
         // Prompt User to Verify Information Before Continuing
         std::cout << "========================================\n"
-                << "\t\t\tPROJECT OVERVIEW\n"
+                << "         ~PROJECT OVERVIEW~\n"
                 << "========================================\n\n"
                 << gf.info() <<"\n\n\nContinue? (y/n): ";
 
-    }while( std::string("yesYesYES").find(ch) != std::string::npos );
+    }while( std::string("yesYesYES").find(ch) == std::string::npos );
 
     // Loop Through and get Information for each File
     for(int i = 3; i < c; i++)
@@ -53,7 +54,8 @@ int handleInitArg(int c, char* vals[])
 
         pf.name = vals[i];
 
-        std::cout << "Breif description for " << pf.name << " Module:\n";
+        std::cout << "Breif description for " << pf.name 
+                    << " Module:\n";
         getline(std::cin, pf.desc);
 
         if( pf.name.find(".cpp") != std::string::npos)
