@@ -37,7 +37,7 @@ int handleInitArg(int c, char* vals[])
         // Set Project Description
         std::cout << "\nProject Description (leave a blank"
                     << " line to save entry and continue):\n";
-        gf.prjEmail  = _getMultiLineInput();
+        gf.prjDesc  = _getMultiLineInput();
 
         // Prompt User to Verify Information Before Continuing
         std::cout << "========================================\n"
