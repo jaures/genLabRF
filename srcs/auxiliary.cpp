@@ -11,7 +11,7 @@ const int kMaxBuff = 256;
 
 // Perform a system call
 //  @Return the exit code
-int _checkCall(std::string call, bool display = false)
+int _checkCall(std::string call, bool display)
 {
     // Add to Append stderr to stdout results
     call += " 2>&1";

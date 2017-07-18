@@ -114,6 +114,5 @@ std::string docFileInit(GenFile);
 std::string makeFileInit(GenFile);
 
 
-
 // Close Include Guard
 #endif

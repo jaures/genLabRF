@@ -21,7 +21,7 @@ extern const int kMaxBuff;
 
 // Perform a system call
 //  @Return the exit code
-int _checkCall(std::string);
+int _checkCall(std::string, bool=false);
 
 // Takes a the first argument, and replaces all instances of
 //  the second argument with the third argument.
