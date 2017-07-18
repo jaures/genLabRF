@@ -129,13 +129,12 @@ std::string _getMultiLineInput(int lineLimit)
         }
         else
         {
-            lines += lines + '\n';
+            lines += line + '\n';
         }
 
         lineLimit--;
     }
 
-    std::cout << lines << "\n.\n===";
     return lines;
 }
 
@@ -155,7 +154,7 @@ std::string _getMultiLineInputF(std::ifstream& fr, int lineLimit, std::string de
         }
         else
         {
-            lines += lines + '\n';
+            lines += line + '\n';
         }
 
         lineLimit--;
