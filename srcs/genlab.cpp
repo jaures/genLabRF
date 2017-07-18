@@ -52,6 +52,9 @@ int main(int argc, char * argv[])
     // Handle Routing the Command Line Arguments
     if( argc == 1)
     {
+        // DEBUG LINE
+        std::cout << "BOOP!\n";
+
         // Print out the Help if no arguments were passed
         exitcode = handleHelpArg(0);
     }
