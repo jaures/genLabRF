@@ -137,13 +137,7 @@ int handleHelpArg( char* cmd)
 
         for(int i = 0; i < 10; i++)
         {
-            // DEBUG LINE
-            std::cout << "BOOP HELP1\n";
-
             std::cout << tHelp[2*i];
-            
-            // DEBUG LINE
-            std::cout << "BOOP HELP2\n";
         }
     }
     else
@@ -153,7 +147,8 @@ int handleHelpArg( char* cmd)
         {
             if( tHelp[2*i].find(cmd) != std::string::npos)
             {
-                std::cout << tHelp[2*i] << tHelp[2*i+1] << "\n";
+                std::cout << tHelp[2*i] << "\t" 
+                    << tHelp[2*i+1] << "\n";
             }
         }
     }

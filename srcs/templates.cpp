@@ -29,7 +29,7 @@ and System Commands
      "--run\t\tRun the compiled Project executable\n",
      "Usage:\n\t--run\n",
 
-     "--test\t\tRun Test Wizard and test compiled Project\n"
+     "--test\t\tRun Test Wizard and test compiled Project\n",
      "Usage:\n\t--test [test1 test2 ...]\n",
 
      "--doc\t\tRun Documentary Wizard and generate a TeX File\n",
