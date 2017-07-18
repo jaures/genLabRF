@@ -49,6 +49,10 @@ int handleInitArg(int c, char* vals[])
 
     }while( std::string("yesYesYES").find(ch) == std::string::npos );
 
+    // Add Project Header & Source File and any
+    //  other files specified from the commandline
+    gf.projFiles.push_back( ProjFile());
+
     // Loop Through and get Information for each File
     for(int i = 3; i < c; i++)
     {
