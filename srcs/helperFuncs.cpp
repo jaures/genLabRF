@@ -80,8 +80,6 @@ std::string makeFileInit(GenFile gf)
     if( std::string("yesYesYES").find(line) == std::string::npos)
         return ss.str();
 
-    // DEBUG LINE
-    std::cout << "MADE MEH\n\n";
 
     // Set Content of ss and insert into template project name
     ss << tMakeFile;
@@ -92,8 +90,13 @@ std::string makeFileInit(GenFile gf)
 
     //Get Other Include Directories and insert into template
     std::cout << "Other Included Directories? (leave a blank line to save entry and continue):\n";
-    ss.str( _strReplace(ss.str(), "%OIDIRS%",
-                _strReplace(_getMultiLineInput(), "\n", " ")));
+    line = _strReplace(ss.str(), "%OIDIRS%",
+                _strReplace(_getMultiLineInput(), "\n", " "));
+    
+     ss.str(line); 
+
+    // DEBUG LINE
+    std::cout << "MADE MEH\n\n";
 
     //Get Other Compiler Flags and insert into template
     std::cout << "Other Compiler Flags? (seperate with spaces):\n";
