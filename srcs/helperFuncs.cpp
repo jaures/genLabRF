@@ -73,16 +73,22 @@ std::string makeFileInit(GenFile gf)
     std::stringstream ss;
     std::string line;
 
-    std::cout << "Run Makefile Wizard? (y/n): ";
+    std::cout << "\nRun Makefile Wizard? (y/n): ";
     getline(std::cin, line);
 
     // Exit Wizard if not yes
     if( std::string("yesYesYES").find(line) == std::string::npos)
         return ss.str();
 
+    // DEBUG LINE
+    std::cout << "MADE MEH\n\n";
+
     // Set Content of ss and insert into template project name
     ss << tMakeFile;
     ss.str(_strReplace(ss.str(), "%PROJECT%", gf.prjName ));
+
+    // DEBUG LINE
+    std::cout << "r6MADE MEH\n\n";
 
     //Get Other Include Directories and insert into template
     std::cout << "Other Included Directories? (leave a blank line to save entry and continue):\n";
