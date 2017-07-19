@@ -76,6 +76,7 @@ std::string makeFileInit(GenFile gf)
     std::cout << "\nRun Makefile Wizard? (y/n): ";
     getline(std::cin, line);
 
+    std::cout << line;
     // Exit Wizard if not yes
     if( std::string("yesYesYES").find(line) == std::string::npos)
         return ss.str();
