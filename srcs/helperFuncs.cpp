@@ -103,6 +103,8 @@ std::string makeFileInit(GenFile gf)
     fw << content;
     fw.close();
 
+    std::cout << content;
+
     return content;
 
 }
