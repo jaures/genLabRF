@@ -69,7 +69,6 @@ bool projDirectoryInit(std::string pn)
 //  @Returns a Stream to the Content of the Makefile
 std::string makeFileInit(GenFile gf)
 {
-    int err = NoError;
     std::string content, line;
 
     std::cout << "\nRun Makefile Wizard? (y/n): ";
@@ -82,15 +81,9 @@ std::string makeFileInit(GenFile gf)
     // Set Content of ss and insert into template project name
     content = _strReplace(tMakeFile, "%PROJECT%", gf.prjName );
 
-    // DEBUG LINE
-    std::cout << "r6MADE MEH\n\n";
-
     //Get Other Include Directories and insert into template
     std::cout << "Other Included Directories? (leave a blank line to save entry and continue):\n";
     _strReplaceI(content, "%OIDIRS%", _strReplace(_getMultiLineInput(), "\n", " "));
-
-    // DEBUG LINE
-    std::cout << "MADE MEH\n\n";
 
     //Get Other Compiler Flags and insert into template
     std::cout << "Other Compiler Flags? (seperate with spaces):\n";
@@ -98,12 +91,9 @@ std::string makeFileInit(GenFile gf)
     _strReplaceI(content, "%OFLAGS%", line);
 
     // Write the Makefile
-    std::ofstream fw("Makefile",
-            std::ofstream::out | std::ofstream::trunc);
+    std::ofstream fw("Makefile", std::ofstream::out | std::ofstream::trunc);
     fw << content;
     fw.close();
-
-    std::cout << content;
 
     return content;
 
