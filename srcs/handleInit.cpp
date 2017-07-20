@@ -106,7 +106,7 @@ int handleInitArg(int c, char* vals[])
     //  no erros have occured thus far
     if( !exitCode)
     {
-		projDirectoryInit();
+		projDirectoryInit(gf.prjName);
 
         exitCode |= ( gf.write(gf.prjName + "/") ? 
                         NoError : InitError );
