@@ -80,7 +80,7 @@ std::string makeFileInit(GenFile gf)
         return content;
 
     // Set Content of ss and insert into template project name
-    content = _strReplace(tMakeFile, "%PROJECT%", gf.prjName );
+    //content = _strReplace(tMakeFile, "%PROJECT%", gf.prjName );
 
     // DEBUG LINE
     std::cout << "r6MADE MEH\n\n";
