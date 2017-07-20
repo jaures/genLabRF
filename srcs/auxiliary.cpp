@@ -116,8 +116,8 @@ int _newlineCountF(std::string file)
 // Get Multilined User Input from std::cin
 std::string _getMultiLineInput(int lineLimit)
 {
-    std::string lines, line;
-    lines = "";
+    std::string lines = new std::string("");
+    std::string line;
 
     while( lineLimit > 0)
     {
