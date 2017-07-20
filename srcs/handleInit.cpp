@@ -112,7 +112,9 @@ int handleInitArg(int c, char* vals[])
         exitCode |= ( gf.gen(gf.prjName + "/") ? 
                         NoError : InitError );
 
-        makeFileInit(gf);
+        //makeFileInit(gf);
+
+		std::cout << "\nExit Code: " << exitCode << "\n";
     }
 
     return exitCode;
