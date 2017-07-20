@@ -106,13 +106,15 @@ int handleInitArg(int c, char* vals[])
     //  no erros have occured thus far
     if( !exitCode)
     {
+		projectDirectoryInit();
+
         exitCode |= ( gf.write(gf.prjName + "/") ? 
                         NoError : InitError );
 
         exitCode |= ( gf.gen(gf.prjName + "/") ? 
                         NoError : InitError );
 
-        //makeFileInit(gf);
+        makeFileInit(gf);
 
 		std::cout << "\nExit Code: " << exitCode << "\n";
     }
