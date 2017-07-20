@@ -70,33 +70,24 @@ bool projDirectoryInit(std::string pn)
 std::string makeFileInit(GenFile gf)
 {
     int err = NoError;
-    std::stringstream ss;
-    std::string line;
+    std::string content, line;
 
     std::cout << "\nRun Makefile Wizard? (y/n): ";
-    std::cin.ignore(1024, '\n');
     getline(std::cin, line);
 
-    line ="yes";
-    
-    std::cout << line;
     // Exit Wizard if not yes
     if( std::string("yesYesYES").find(line) == std::string::npos)
         return ss.str();
 
-
     // Set Content of ss and insert into template project name
-    ss << _strReplace(tMakeFile, "%PROJECT%", gf.prjName );
+    content = _strReplace(tMakeFile, "%PROJECT%", gf.prjName );
 
     // DEBUG LINE
     std::cout << "r6MADE MEH\n\n";
 
     //Get Other Include Directories and insert into template
     std::cout << "Other Included Directories? (leave a blank line to save entry and continue):\n";
-    line = _strReplace(ss.str(), "%OIDIRS%",
-                _strReplace(_getMultiLineInput(), "\n", " "));
-    
-     ss.str(line); 
+    _strReplaceI(content, "%OIDIRS%", _strReplace(_getMultiLineInput(), "\n", " "));
 
     // DEBUG LINE
     std::cout << "MADE MEH\n\n";
@@ -104,15 +95,15 @@ std::string makeFileInit(GenFile gf)
     //Get Other Compiler Flags and insert into template
     std::cout << "Other Compiler Flags? (seperate with spaces):\n";
     getline(std::cin, line);
-    ss.str( _strReplace(ss.str(), "%OFLAGS%", line));
+    _strReplaceI(content, "%OFLAGS%", line);
 
     // Write the Makefile
     std::ofstream fw("Makefile",
             std::ofstream::out | std::ofstream::trunc);
-    fw << ss.str();
+    fw << content;
     fw.close();
 
-    return ss.str();
+    return content;
 
 }
 
