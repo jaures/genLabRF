@@ -74,9 +74,10 @@ std::string makeFileInit(GenFile gf)
     std::string line;
 
     std::cout << "\nRun Makefile Wizard? (y/n): ";
+    std::cin.ignore(1024, '\n');
     getline(std::cin, line);
 
-    line ="ppppp";
+    line ="yes";
     
     std::cout << line;
     // Exit Wizard if not yes
