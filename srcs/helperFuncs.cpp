@@ -77,7 +77,7 @@ std::string makeFileInit(GenFile gf)
 
     // Exit Wizard if not yes
     if( std::string("yesYesYES").find(line) == std::string::npos)
-        return ss.str();
+        return content;
 
     // Set Content of ss and insert into template project name
     content = _strReplace(tMakeFile, "%PROJECT%", gf.prjName );
