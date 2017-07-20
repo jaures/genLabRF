@@ -55,6 +55,8 @@ std::string _strReplace(std::string str, std::string ori, std::string rep)
         // Look for Next Instance of @param ori in @param str
         p = str.find(ori);
     }
+
+	return str;
 }
 
 
@@ -116,8 +118,7 @@ int _newlineCountF(std::string file)
 // Get Multilined User Input from std::cin
 std::string _getMultiLineInput(int lineLimit)
 {
-    std::string lines = new std::string;
-    std::string line;
+    std::string lines, line
 
    	line = "";
     while( lineLimit > 0)
