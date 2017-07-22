@@ -12,6 +12,7 @@ And Logic of the Genlab Project
 // Includes
 #include <iostream>
 #include <string>
+#include <cstring>
 #include <vector>
 #include <fstream>
 #include <sstream>

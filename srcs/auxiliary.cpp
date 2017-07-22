@@ -76,7 +76,7 @@ int _strReplaceI(std::string& str, std::string ori, std::string rep)
             str.substr(p + ori.size(), str.size() - p - ori.size());
 
         // Look for Next Instance of @param ori in @param str
-        p = str.find(ori);
+        p = str.find(ori, p + 1);
     }
 
     return cnt;

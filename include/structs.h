@@ -230,7 +230,9 @@ extern const std::string kFileDelim;
         for( int i = 0; i < projFiles.size(); i++)
         {
             if( !projFiles[i].write(dir) )
-                return false;
+            {
+                std::cout << "FALSE!! " << i << projFiles[i].name << "\n";
+                return false;}
         }
 
         return true;

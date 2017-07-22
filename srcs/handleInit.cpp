@@ -51,55 +51,81 @@ int handleInitArg(int c, char* vals[])
 
     // Add Project Header & Source File and any
     //  other files specified from the commandline
-    gf.projFiles.push_back( ProjFile());
+    std::strcpy(vals[1], (gf.prjName + ".h").c_str());
+    std::strcpy(vals[2], (gf.prjName + ".cpp").c_str());
 
     // Loop Through and get Information for each File
-    for(int i = 3; i < c; i++)
+    for(int i = 1; i < c; i++)
     {
         ProjFile pf;
 
         pf.name = vals[i];
 
-        std::cout << "Breif description for " << pf.name 
-                    << " Module:\n";
-        getline(std::cin, pf.desc);
+        std::cout << "\nBreif description for " << pf.name 
+                    << " Module (leave a blank line to save entry and continue):\n";
+        pf.desc = _getMultiLineInput();
+
+        std::cout << "Libraries to include in " << pf.name 
+            << " Module (one per line, leave line empty to save and continue):\n";
+
+        pf.content = _getMultiLineInput();
+
+        // DEBUG LINE
+        //std::cout << "AFTER GLIB\n\n";
 
         if( pf.name.find(".cpp") != std::string::npos)
         {
             pf.dir = "srcs/";
+            
+            //DEBUG LINE
+            std::cout << "else cpp\n";
+
+            // Needed to prevent infinite loop when replacing string where
+            //  original is a substring of the replacement
+            pf.content = _strReplace(pf.content, "\n", kFileDelim);
+
+            // Add in Included Dependencies
+            pf.content = _strReplace(tCPPFile, "%INCLUDE%", "#include <" + 
+                            _strReplace( pf.content, kFileDelim, ">\n#include <") + ">\n"); 
         }
         else if (pf.name.find(".h") != std::string::npos)
         {
+            // DEBUG LINE
+            std::cout << "else h\n\n";
+
+            // Needed to prevent infinite loop when replacing string where
+            //  original is a substring of the replacement
+            pf.content = _strReplace(pf.content, "\n", kFileDelim);
+
             pf.dir = "include/";
+
+            // Add in Included Dependencies
+            pf.content = _strReplace(tHFile, "%INCLUDE%", "#include <" + 
+                            _strReplace( pf.content, kFileDelim, ">\n#include <") + ">\n"); 
         }
         else
         {
+            // DEBUG LINE
+            std::cout << "else\n\n";
+
             // Skip adding content if the File
             //  is not a source or header file
             pf.dir = "";
             gf.projFiles.push_back(pf);
             continue;
         }
-
-        std::cout << "Libraries to include in " << pf.name 
-            << " Module (Seperate with spaces):\n";
         
-        std::string line;
-        getline(std::cin, line);
-
-        // Set the Template based on the filetype
-        pf.content = ((pf.dir == "srcs/") ? tHFile : tCPPFile);
+        // DEBUG LINE
+        std::cout << "AFTER after B\n\n";
 
         // Replace the Description & Check for Error
-        exitCode |= ((_strReplaceI(pf.content, "%DESC%",
+        exitCode |= ((_strReplaceI(pf.content, "%HEADER%",
                     gf.hInfo() + "\n\nDescription:\n"+ pf.desc) > 0) ?
                     NoError : InitError);
 
-        // Add in Included Dependencies & Check for Error
-        exitCode |= ( (_strReplaceI(pf.content, "%INCLUDE%",
-                    "/*\n" + gf.info() + "\n*/\n\n#include <" +
-                    _strReplace(line," ",">\n#include <")+">\n") > 0 ) ?
-                    NoError : InitError);
+
+        if(!exitCode)
+            gf.projFiles.push_back(pf);
     }
 
     // Write the GenFile to file and create all the project files if
