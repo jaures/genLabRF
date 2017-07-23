@@ -20,6 +20,12 @@ int handleInitArg(int c, char* vals[])
     // Set Project Name
     gf.prjName = vals[2];
 
+    // DEBUG BLOCK
+    for(int i = 0; i < c; i++)
+    {
+        std::cout << "\n" << i << ". " << vals[i];
+    }
+
     do
     {
         // Set Project Author
@@ -49,11 +55,27 @@ int handleInitArg(int c, char* vals[])
 
     }while( std::string("yesYesYES").find(ch) == std::string::npos );
 
+    std::cout << "\nBefore\vHey";
+
+    // DEBUG BLOCK
+    for(int i = 0; i < c; i++)
+    {
+        std::cout << "\n" << i << ". " << vals[i];
+    }
+
     // Add Project Header & Source File and any
     //  other files specified from the commandline
+    vals[1] = new char[64];
+    vals[2] = new char[64];
     std::strcpy(vals[1], (gf.prjName + ".h").c_str());
     std::strcpy(vals[2], (gf.prjName + ".cpp").c_str());
 
+    // DEBUG BLOCK
+    for(int i = 0; i < c; i++)
+    {
+        std::cout << "\n" << i << ". " << vals[i];
+    }
+    
     // Loop Through and get Information for each File
     for(int i = 1; i < c; i++)
     {
@@ -71,7 +93,7 @@ int handleInitArg(int c, char* vals[])
         pf.content = _getMultiLineInput();
 
         // DEBUG LINE
-        //std::cout << "AFTER GLIB\n\n";
+        //std::cout << pf.content << ".<\n\n";
 
         if( pf.name.find(".cpp") != std::string::npos)
         {

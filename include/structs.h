@@ -42,9 +42,9 @@ extern const std::string kFileDelim;
     ProjFile(std::string _name, std::string _desc, std::string _content, std::string _dir = "")
     {
         name    = _name;
-        desc        = _desc;
-        content     = _content;
-        dir         = _dir;
+        desc    = _desc;
+        content = _content;
+        dir     = _dir;
     };
 
     std::string info()
@@ -60,13 +60,10 @@ extern const std::string kFileDelim;
     // Write ProjFile Struct to File
     bool write(std::string _dir = "")
     {
-        // Check For Default Value
-        if (_dir == ""){ _dir = dir;}
+        std::ofstream fw( (_dir + dir + name).c_str(),
+            std::fstream::out | std::fstream::trunc);
 
-        std::fstream fw( (_dir + name).c_str(),
-            std::fstream::in | std::fstream::out);
-
-        if( !fw.good() || fw.peek() == EOF)
+        if( !fw.good() || !fw.is_open())
             return false;
 
         fw << content;
@@ -88,15 +85,6 @@ extern const std::string kFileDelim;
     std::string prjDesc;
 
     std::vector< ProjFile > projFiles;
-
-    /*GenFile()
-    {
-        prjName =
-            prjAuthor =
-            prjEmail =
-            prjTag =
-            prjDesc = "";
-    }*/
 
     GenFile( std::string _name = "", std::string _author = "",
             std::string _email = "", std::string _tag = "",
