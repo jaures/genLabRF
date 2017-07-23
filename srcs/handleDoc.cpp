@@ -14,7 +14,9 @@ of Project Documentation
 int handleDocArg()
 {
     GenFile gf;
+    std::cout << "db\n";
     int exitCode = ( (checkProjInit() && gf.load()) ? InitError : NoError );
+    std::cout << "\ndb\n";
 
     // Check for Error
     if(exitCode)
@@ -33,6 +35,8 @@ int handleDocArg()
         // If no .testFile exists, prompt user to run it
         //  the Test Wizard First
         if( !checkTestsInit())
+        std::cout << "\ndb\n";
+        std::cout << "\ndb\n";
         {
             std::cout << "Run Test Wizard? (y/n): ";
 

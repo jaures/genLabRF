@@ -120,20 +120,21 @@ std::string _getMultiLineInput(int lineLimit)
 {
     std::string lines, line;
 
-   	line = "";
-    while( lineLimit > 0)
-    {
-        getline(std::cin, line);
+    getline(std::cin, line);
+    lines = line;
 
+    while( lineLimit > 0 && !line.empty())
+    {
         if(line.empty())
         {
             break;
         }
         else
         {
-            lines += line + '\n';
+            lines += "\n" + line;
         }
 
+        getline(std::cin, line);
         lineLimit--;
     }
 
@@ -144,21 +145,22 @@ std::string _getMultiLineInput(int lineLimit)
 std::string _getMultiLineInputF(std::ifstream& fr, int lineLimit, std::string delim)
 {
     std::string lines, line;
-    lines = "";
 
-    while( lineLimit > 0)
+    getline(fr, line);
+    lines = line;
+
+    while( lineLimit > 0 && !line.empty() && line != kFileDelim)
     {
-        getline(fr, line);
-
-        if(line.empty() || line == delim)
+        if(line.empty() || line == kFileDelim)
         {
             break;
         }
         else
         {
-            lines += line + '\n';
+            lines += "\n" + line;
         }
 
+        getline(fr, line);
         lineLimit--;
     }
 

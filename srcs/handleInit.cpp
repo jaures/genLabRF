@@ -67,6 +67,7 @@ int handleInitArg(int c, char* vals[])
     //  other files specified from the commandline
     vals[1] = new char[64];
     vals[2] = new char[64];
+
     std::strcpy(vals[1], (gf.prjName + ".h").c_str());
     std::strcpy(vals[2], (gf.prjName + ".cpp").c_str());
 
@@ -75,7 +76,7 @@ int handleInitArg(int c, char* vals[])
     {
         std::cout << "\n" << i << ". " << vals[i];
     }
-    
+
     // Loop Through and get Information for each File
     for(int i = 1; i < c; i++)
     {
@@ -91,9 +92,6 @@ int handleInitArg(int c, char* vals[])
             << " Module (one per line, leave line empty to save and continue):\n";
 
         pf.content = _getMultiLineInput();
-
-        // DEBUG LINE
-        //std::cout << pf.content << ".<\n\n";
 
         if( pf.name.find(".cpp") != std::string::npos)
         {
@@ -145,6 +143,12 @@ int handleInitArg(int c, char* vals[])
                     gf.hInfo() + "\n\nDescription:\n"+ pf.desc) > 0) ?
                     NoError : InitError);
 
+        // Check for main source file
+        if( gf.prjName + ".cpp" == pf.name)
+        {
+            exitCode |= ( _strReplaceI(pf.content, "/* Source Code */", tMainFunct) > 0 ?
+                    NoError : InitError);
+        }
 
         if(!exitCode)
             gf.projFiles.push_back(pf);

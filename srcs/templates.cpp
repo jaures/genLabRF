@@ -258,7 +258,7 @@ and System Commands
 
 // Template for C++ *.cpp Source File
  const std::string tCPPFile =
- "%HEADER%\n\n"
+ "/*%HEADER%\n*/\n"
  "// Include Dependencies\n%INCLUDE%\n\n"
  "// Global Declarations/Definitions\n\n"
  "/* Source Code */";
@@ -267,8 +267,8 @@ and System Commands
 // Template for  a C++ Main Function that prints 'Hello World'
  const std::string tMainFunct =
  "// Main Function\n"
- "int main(int argc, char** argv[])\n"
- "{\n\t/* Source Code */\n\tstd::cout << \"Hello World!\n\";\n\treturn 0;\n}";
+ "int main(int argc, char* argv[])\n"
+ "{\n\t/*  Source Code  */\n\tstd::cout << \"Hello World!\";\n\treturn 0;\n}";
 
 
 // Template for Project Directory Structure
