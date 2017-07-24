@@ -126,7 +126,7 @@ int handleInitArg(int c, char* vals[])
             
             // Add in the Include Guards
             pf.content = _strReplace(pf.content, "%HFILE%",
-                            _strReplace(pf.Name, ".", "_"));
+                            _strReplace(pf.name, ".", "_"));
         }
         else
         {
