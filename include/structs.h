@@ -171,10 +171,7 @@ extern const std::string kFileDelim;
             prjDesc = "";
 
         std::string tmp;
-        do{
-            getline(fr, tmp);
-            prjDesc += tmp + "\n";
-        }while(!prjDesc.empty());
+        prjDesc = _getMultiLineInputF(fr);
 
         // Error Checking
         getline(fr, tmp);

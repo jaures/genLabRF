@@ -16,7 +16,6 @@ Functions.
 //  Initialized Project .genFile
 bool checkProjInit()
 {
-    std::cout << "\nAlmost Done!\n";
     return std::ifstream(".genFile");
 }
 

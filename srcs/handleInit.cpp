@@ -84,7 +84,7 @@ int handleInitArg(int c, char* vals[])
 
         pf.name = vals[i];
 
-        std::cout << "\nBreif description for " << pf.name 
+        std::cout << "\nBrief description for " << pf.name 
                     << " Module (leave a blank line to save entry and continue):\n";
         pf.desc = _getMultiLineInput();
 
@@ -121,7 +121,12 @@ int handleInitArg(int c, char* vals[])
 
             // Add in Included Dependencies
             pf.content = _strReplace(tHFile, "%INCLUDE%", "#include <" + 
-                            _strReplace( pf.content, kFileDelim, ">\n#include <") + ">\n"); 
+                            _strReplace( pf.content, kFileDelim,
+                                ">\n#include <") + ">\n"); 
+            
+            // Add in the Include Guards
+            pf.content = _strReplace(pf.content, "%HFILE%",
+                            _strReplace(pf.Name, ".", "_"));
         }
         else
         {

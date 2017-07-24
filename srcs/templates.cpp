@@ -268,7 +268,8 @@ and System Commands
  const std::string tMainFunct =
  "// Main Function\n"
  "int main(int argc, char* argv[])\n"
- "{\n\t/*  Source Code  */\n\tstd::cout << \"Hello World!\";\n\treturn 0;\n}";
+ "{\n\t/*  Source Code  */\n\tstd::cout << \"Hello World!\\n\";"
+ "\n\treturn 0;\n}";
 
 
 // Template for Project Directory Structure

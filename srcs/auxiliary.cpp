@@ -149,9 +149,9 @@ std::string _getMultiLineInputF(std::ifstream& fr, int lineLimit, std::string de
     getline(fr, line);
     lines = line;
 
-    while( lineLimit > 0 && !line.empty() && line != kFileDelim)
+    while( lineLimit > 0 && !line.empty() && line != delim)
     {
-        if(line.empty() || line == kFileDelim)
+        if(line.empty() || line == delim)
         {
             break;
         }
