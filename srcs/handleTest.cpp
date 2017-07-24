@@ -110,12 +110,12 @@ int handleTestArg(int c, char* vals[])
         else if( std::string("yesYesYES").find(line) != std::string::npos)
         {
             // Prompt user for what to do next
-            std::cout << "\nTest Wizard Menu\n================"
-            << "\n\tTypet'\\list' to list all tests"
-            << "\n\t\t\t'\\list #' to list information about tests-#"
-            << "\n\t\t\t'\\clear' to clear all tests"
-            << "\n\t\t\t'\\clear #' to clear tests-#"
-            << "\n\t\t\t\\q to continue to Testing" ;
+            std::cout << "\nTest Wizard Menu\n================\nType:\n"
+            << "\n\t'\\list'\tto list all tests"
+            << "\n\t'\\list #'\tto list information about tests-#"
+            << "\n\t'\\clear'\tto clear all tests"
+            << "\n\t'\\clear #'\tto clear tests-#"
+            << "\n\t'\\q'\tto continue to Testing" ;
 
             getline(std::cin, line);
         }
