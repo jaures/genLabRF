@@ -14,9 +14,9 @@ of Project Documentation
 int handleDocArg()
 {
     GenFile gf;
-    std::cout << "db\n";
-    int exitCode = ( (checkProjInit() && gf.load()) ? InitError : NoError );
-    std::cout << "\ndb\n";
+    
+	int exitCode = ( (checkProjInit() && gf.load()) ? InitError : NoError );
+    std::cout << "\ndb:" <<  gf.prjName << "\n";
 
     // Check for Error
     if(exitCode)
@@ -35,8 +35,6 @@ int handleDocArg()
         // If no .testFile exists, prompt user to run it
         //  the Test Wizard First
         if( !checkTestsInit())
-        std::cout << "\ndb\n";
-        std::cout << "\ndb\n";
         {
             std::cout << "Run Test Wizard? (y/n): ";
 
@@ -149,7 +147,11 @@ int handleDocArg()
         //  *NOTE: No Guarentee all of it will fit on the slide
         content = _strReplace(content, "%DESIGN%", designSlide);
 
-		std::cout << content;
+		// Write the Documentation to file
+		std::ofstream fw(("docs/" + gf.prjName + ".tex").c_str(),
+							sdt::ofstream::out | std::ofstream::trunc);
+
+		fw << content;
 
     }
 
