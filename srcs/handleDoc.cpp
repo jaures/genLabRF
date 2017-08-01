@@ -149,7 +149,7 @@ int handleDocArg()
 
 		// Write the Documentation to file
 		std::ofstream fw(("docs/" + gf.prjName + ".tex").c_str(),
-							sdt::ofstream::out | std::ofstream::trunc);
+							std::ofstream::out | std::ofstream::trunc);
 
 		fw << content;
 
