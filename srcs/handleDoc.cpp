@@ -117,7 +117,7 @@ int handleDocArg()
                     tmpSS >> fLine >> lLine;
 
                     // Place First and Last line variables into Template
-            std::string dummy = _strReplace( implSlide, "%FL%", fLine);
+            		std::string dummy = _strReplace( implSlide, "%FL%", fLine);
                     exitCode |= (_strReplaceI( dummy,"%LL%", lLine) ? NoError : DocError);
 
                     // Append New Slide to the Documentation
@@ -149,9 +149,7 @@ int handleDocArg()
         //  *NOTE: No Guarentee all of it will fit on the slide
         content = _strReplace(content, "%DESIGN%", designSlide);
 
-
-        // Cycle Through and Create Implementation Slides
-
+		std::cout << content;
 
     }
 
