@@ -16,7 +16,7 @@ int handleDocArg()
     GenFile gf;
     
 	int exitCode = ( (checkProjInit() && gf.load()) ? InitError : NoError );
-    std::cout << "\ndb:" <<  gf.prjName << "\n";
+    std::cout << "\ndb:" <<  gf.prjDesc << "\n";
 
     // Check for Error
     if(exitCode)
